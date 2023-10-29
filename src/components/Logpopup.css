@@ -123,7 +123,7 @@
   width: 40%;
   min-width: 345px;
   position: absolute;
-  background: var(--glass-color);
+  background: transparent;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 4px 30px #1f1f1f;
@@ -167,6 +167,7 @@
   flex-direction: column;
   width: calc(80% + 1rem);
 }
+
 .app-login-input{
   margin-top: 2rem;
   height: 4rem;
@@ -181,6 +182,41 @@
 }
 
 .app-login-button{
+  height: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  background: linear-gradient(90deg, #BE31B8 55%, #FF1EB2);
+  cursor: pointer;
+  box-shadow:  13px 13px 26px #bebebe,
+             -13px -13px 26px #ffffff;
+             color: white;
+  font-size: 1.8rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-signup-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: calc(80% + 1rem);
+}
+
+.app-signup-input{
+  margin-top: 2rem;
+  height: 4rem;
+  border-radius: 20px;
+  outline: none;
+  padding: 0 0 0 1rem;
+  font-size: 1.2rem;
+  background: #e0e0e0;
+  box-shadow:  13px 13px 26px #bebebe,
+             -13px -13px 26px #ffffff;
+  border: none;
+}
+
+.app-signup-button{
   height: 4rem;
   margin-top: 2rem;
   margin-bottom: 4rem;

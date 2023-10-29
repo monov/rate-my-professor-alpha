@@ -59,7 +59,7 @@ const Applogin = () => {
     
     <div className="app-login-wrapper">
       <input className="app-login-input username" placeholder="Username" type="text" />
-      <input className="app-login-input password" placeholder="Password" type="text" />
+      <input className="app-login-input password" placeholder="Password" type="password" />
       <div className="app-login-button">Log In</div>
     </div>
 
@@ -67,5 +67,12 @@ const Applogin = () => {
 };
 
 const Appsignup = () => {
-  return <>2</>;
+  return (
+    <div className="app-signup-wrapper">
+      <input className="app-signup-input username" placeholder="Username" type="text" />
+      <input className="app-signup-input email" placeholder="Email" type="email" />
+      <input className="app-signup-input password" placeholder="Password" type="password" />
+      <div className="app-signup-button">Sign Up</div>
+    </div>
+  );
 };
