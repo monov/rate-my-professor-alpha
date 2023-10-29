@@ -21,7 +21,7 @@
 }
 
 .app-popup-esc{
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   display: grid;
   grid-template-columns: repeat(5, 20px);
   width: 100%;
@@ -44,7 +44,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .app-buttons{
@@ -183,8 +183,8 @@
 
 .app-login-button{
   height: 4rem;
-  margin-top: 2rem;
-  margin-bottom: 4rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
   background: linear-gradient(90deg, #BE31B8 55%, #FF1EB2);
   cursor: pointer;
   box-shadow:  13px 13px 26px #bebebe,
@@ -223,7 +223,7 @@
 .app-signup-button{
   height: 4rem;
   margin-top: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   background: linear-gradient(90deg, #BE31B8 55%, #FF1EB2);
   cursor: pointer;
   box-shadow:  13px 13px 26px #bebebe,
