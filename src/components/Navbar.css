@@ -1,0 +1,111 @@
+
+.app-navbar{
+  background: transparent;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  min-width: 350px;
+}
+
+.app-logo{
+  font-size: 1rem;
+  margin-left: 4rem;
+  font-weight: 900;
+  cursor: pointer;
+  color: var(--accent-color);
+}
+
+.app-account{
+  font-size: 36px;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 4rem;
+}
+
+.app-account-pfp-wrapper{
+  height: 2.2rem;
+  width: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  border: solid 2px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.app-account-pfp-wrapper:hover{
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.app-account-pfp{
+  padding: 2px;
+  color: var(--accent-color);
+}
+
+
+
+
+
+@media (width > 2000px) {
+  .app-navbar{
+    height: 90px;
+  }
+
+  .app-logo{
+    font-size: 2rem;
+    margin-left: 10rem;
+  }
+
+  .app-account-pfp-wrapper{
+    height: 4rem;
+    width: 4rem;
+  }
+
+  .app-account{
+    margin-right: 10rem;
+  }
+}
+
+@media (1000px <= width <= 2000px){
+  .app-navbar{
+    height: 60px;
+  }
+
+  .app-logo{
+    font-size: 1.6rem;
+    margin-left: 6rem;
+  }
+
+  .app-account-pfp-wrapper{
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .app-account{
+    margin-right: 6rem;
+  }
+}
+
+@media (820px <= width <= 1000px) {
+    .app-navbar{
+      height: 80px;
+    }
+
+    .app-logo{
+      font-size: 1.5rem;
+    }
+
+    .app-account-pfp-wrapper{
+      height: 3rem;
+      width: 3rem;
+    }
+  }

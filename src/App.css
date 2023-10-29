@@ -1,0 +1,23 @@
+*{
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+:root{
+  --main-color: black;
+  --glass-color: rgba(255, 255, 255, 0.4);
+  /* --accent-color: #AB162B; */
+  --accent-color: #F83285;
+}
+
+body{
+  background: url('/src/assets/background-violet.png') #e0e0e0;
+  background-position: 5% 70%;
+  background-size: 150%;
+}
+
+::-webkit-scrollbar{
+  width: 0;
+}

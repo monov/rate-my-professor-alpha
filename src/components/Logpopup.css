@@ -1,0 +1,199 @@
+.app-log-popup{
+  height: auto;
+  width: 0px;
+  min-width: 0px;
+  position: absolute;
+  background: var(--glass-color);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px #1f1f1f;
+  border-radius: 20px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: .2s;
+  transform: translateY(100vh);
+}
+
+.display-none{
+  display: none;
+}
+
+.app-popup-esc{
+  font-size: 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(5, 20px);
+  width: 100%;
+  
+}
+
+.app-popup-esc-ico{
+  margin-left: 1rem;
+  margin-top: 1rem;
+  color: #bf00b9;
+  cursor: pointer;
+  
+}
+
+.app-buttons-wrapper{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.app-buttons{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient( 60deg, #500177, #FF00F5);
+  color: white;
+  transition: .4s;
+  border-radius: 20px;
+  font-size: 1.8rem;
+  font-weight: 900;
+  
+}
+
+.signup{
+  margin-left: 1rem;
+}
+
+.login-not{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0e0e0;
+  color: #000;
+  border-radius: 20px;
+  font-size: 1.8rem;
+  font-weight: 900;
+  box-shadow:  13px 13px 26px #bebebe,
+             -13px -13px 26px #ffffff;
+  transition: .4s;
+  cursor: pointer;
+}
+
+.signup-not{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0e0e0;
+  color: #000;
+
+  border-radius: 20px;
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-left: 1rem;
+  box-shadow:  13px 13px 26px #bebebe,
+             -13px -13px 26px #ffffff;
+  transition: .4s;
+  cursor: pointer;
+}
+
+.app-signup-google{
+  margin-top: 2rem;
+  background: linear-gradient(90deg, #BE31B8 55%, #FF1EB2);
+  color: white;
+  font-size: 1.8rem;
+  width: calc(80% + 1rem);
+  border-radius: 20px;
+  height: 4rem;
+  text-align: center;
+  line-height: 4rem;
+  /* box-shadow: 0 4px 8px #1f1f1f; */
+  cursor: pointer;
+  box-shadow:  13px 13px 26px #bebebe,
+             -13px -13px 26px #ffffff;
+}
+
+.app-log-popup-not{
+  height: auto;
+  width: 40%;
+  min-width: 345px;
+  position: absolute;
+  background: var(--glass-color);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px #1f1f1f;
+  border-radius: 20px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: .2s;
+}
+
+.app-log-popup-lines{
+  margin-top: 2rem;
+  width: calc(80% + 1rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb( 0, 0, 0, 0.5);
+}
+
+.app-popup-line{
+  height: 1px;
+  width: 45%;
+  background: rgb( 0, 0, 0, 0.5);
+}
+
+.app-popup-line-text{
+  flex: 1;
+  text-align: center;
+}
+
+.app-login-signup-wrapper{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-login-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: calc(80% + 1rem);
+}
+.app-login-input{
+  margin-top: 2rem;
+  height: 4rem;
+  border-radius: 20px;
+  outline: none;
+  padding: 0 0 0 1rem;
+  font-size: 1.2rem;
+  background: #e0e0e0;
+  box-shadow:  13px 13px 26px #bebebe,
+             -13px -13px 26px #ffffff;
+  border: none;
+}
+
+.app-login-input + .password{
+  
+}
+
+.app-login-button{
+  height: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  background: linear-gradient(90deg, #BE31B8 55%, #FF1EB2);
+  cursor: pointer;
+  box-shadow:  13px 13px 26px #bebebe,
+             -13px -13px 26px #ffffff;
+             color: white;
+  font-size: 1.8rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,27 @@
+.app-mainsection-search-wrapper{
+  display: flex;
+  justify-content: center;
+  height: 30%;
+  width: 100%;
+  z-index: 1;
+}
+
+.app-mainsection-search-input-wrapper{
+  background: white;
+  border: solid .25rem #F83285;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 60%;
+  min-width: 300px;
+  height: 3rem;
+}
+
+.app-mainsection-search-input-wrapper input{
+  height: 100%;
+  width: 90%;
+  padding: 0 0 0 2rem;
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+}
+
