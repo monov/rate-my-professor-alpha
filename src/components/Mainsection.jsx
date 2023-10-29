@@ -10,9 +10,8 @@ const Mainsection = ({ isPopup, setIsPopup }) => {
         <div className="app-mainsection-text-search-wrapper">
           <div className="app-mainsection-text-wrapper">
             <p>
-              200 Professors <br />
-              1.2k ratings <br />
-              120 comments <br />
+              <p className="text-logo">LOGO</p>
+              Enter the class name to get started
             </p>
           </div>
 

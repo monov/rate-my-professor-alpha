@@ -28,17 +28,21 @@
 
 .app-mainsection-text-wrapper{
   width: 100%;
-  height: 70%;
+  height: 50%;
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: center;
 }
 
 .app-mainsection-text-wrapper p{
   font-size: 2rem;
   text-align: center;
-  font-weight: 900;
+  font-weight: 500;
   /* filter: blur(10px); */
+}
+
+.text-logo{
+  margin-bottom: 4rem;
 }
 
 .app-construct-blox{
