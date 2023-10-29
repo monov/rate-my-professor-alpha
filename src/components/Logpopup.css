@@ -72,7 +72,7 @@
   align-items: center;
   justify-content: center;
   background: #e0e0e0;
-  color: #000;
+  color: #271f1f;
   border-radius: 20px;
   font-size: 1.8rem;
   font-weight: 900;
@@ -124,6 +124,7 @@
   position: absolute;
   background: var(--glass-color);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 4px 30px #1f1f1f;
   border-radius: 20px;
   z-index: 1;
@@ -176,10 +177,6 @@
   box-shadow:  13px 13px 26px #bebebe,
              -13px -13px 26px #ffffff;
   border: none;
-}
-
-.app-login-input + .password{
-  
 }
 
 .app-login-button{
