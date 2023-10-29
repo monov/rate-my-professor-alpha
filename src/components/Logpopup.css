@@ -103,7 +103,7 @@
 }
 
 .app-signup-google{
-  margin-top: 2rem;
+  margin-top: 1rem;
   background: linear-gradient(90deg, #BE31B8 55%, #FF1EB2);
   color: white;
   font-size: 1.8rem;
@@ -123,7 +123,7 @@
   width: 40%;
   min-width: 345px;
   position: absolute;
-  background: transparent;
+  background: #e0e0e0;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 4px 30px #1f1f1f;
@@ -169,7 +169,7 @@
 }
 
 .app-login-input{
-  margin-top: 2rem;
+  margin-top: 1rem;
   height: 4rem;
   border-radius: 20px;
   outline: none;
@@ -204,7 +204,7 @@
 }
 
 .app-signup-input{
-  margin-top: 2rem;
+  margin-top: 1rem;
   height: 4rem;
   border-radius: 20px;
   outline: none;
@@ -214,6 +214,10 @@
   box-shadow:  13px 13px 26px #bebebe,
              -13px -13px 26px #ffffff;
   border: none;
+}
+
+.username{
+  margin-top: 2rem;
 }
 
 .app-signup-button{
