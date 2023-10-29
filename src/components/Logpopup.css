@@ -5,6 +5,7 @@
   position: absolute;
   background: var(--glass-color);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 4px 30px #1f1f1f;
   border-radius: 20px;
   z-index: 1;
@@ -13,7 +14,6 @@
   align-items: center;
   transition: .2s;
   transform: translateY(100vh);
-  -webkit-backdrop-filter: blur(20px);
 }
 
 .display-none{

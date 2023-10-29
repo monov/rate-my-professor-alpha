@@ -16,6 +16,7 @@ body{
   background: url('/src/assets/background-violet.png') #e0e0e0;
   background-position: 5% 70%;
   background-size: 150%;
+  scrollbar-width: none;
 }
 
 ::-webkit-scrollbar{
