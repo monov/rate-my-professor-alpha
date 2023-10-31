@@ -6,8 +6,9 @@ const Logpopup = ({ isPopup, setIsPopup, isPopCalled, setIsPopCalled }) => {
   const [isLogin, setIsLogin] = useState(false);
   const handleClick = async () => {
     setIsPopup((prevIsPopup) => !prevIsPopup);
-    await setTimeout(() => {setIsPopCalled(true)}, 200)
-    console.log(isPopCalled)
+    await setTimeout(() => {
+      setIsPopCalled(true);
+    }, 200);
   };
 
   const logClick = () => {
@@ -18,7 +19,17 @@ const Logpopup = ({ isPopup, setIsPopup, isPopCalled, setIsPopCalled }) => {
   };
 
   return (
-    <div className={isPopCalled ? (isPopup ? "app-log-popup display-none" : "app-log-popup-not") : (isPopup ? "app-log-popup" : "app-log-popup-not")}>
+    <div
+      className={
+        isPopCalled
+          ? isPopup
+            ? "app-log-popup display-none"
+            : "app-log-popup-not"
+          : isPopup
+          ? "app-log-popup"
+          : "app-log-popup-not"
+      }
+    >
       <div onClick={handleClick} className="app-popup-esc">
         <MdCancel className="app-popup-esc-ico" />
       </div>
@@ -55,24 +66,142 @@ const Logpopup = ({ isPopup, setIsPopup, isPopCalled, setIsPopCalled }) => {
 export default Logpopup;
 
 const Applogin = () => {
-  return (
-    
-    <div className="app-login-wrapper">
-      <input className="app-login-input username" placeholder="Username" type="text" />
-      <input className="app-login-input password" placeholder="Password" type="password" />
-      <div className="app-login-button">Log In</div>
-    </div>
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+  const api = import.meta.env.VITE_API_BASE_URL;
 
+  const handleChangeU = (value) => {
+    setUser(value);
+  };
+
+  const handleChangeP = (value) => {
+    setPassword(value);
+  };
+
+  async function login() {
+    const loginUsername = user;
+    const loginPassword = password;
+
+    const loginData = {
+      username: loginUsername,
+      password: loginPassword,
+    };
+
+    try {
+      const response = await fetch(`${api}login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": "123",
+        },
+        body: JSON.stringify(loginData),
+      });
+
+      if (response.status === 200) {
+        console.log("vse chetka");
+      } else if (response.status === 401) {
+        alert("Login failed. Please check your credentials.");
+      } else {
+        console.error("Login error:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
+  return (
+    <div className="app-login-wrapper">
+      <input
+        value={user}
+        onChange={(e) => handleChangeU(e.target.value)}
+        className="app-login-input username"
+        placeholder="Username"
+        type="text"
+      />
+      <input
+        value={password}
+        onChange={(e) => handleChangeP(e.target.value)}
+        className="app-login-input password"
+        placeholder="Password"
+        type="password"
+      />
+      <div onClick={login} className="app-login-button">
+        Log In
+      </div>
+    </div>
   );
 };
 
 const Appsignup = () => {
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const api = import.meta.env.VITE_API_BASE_URL;
+  const handleChangeU = (value) => {
+    setUser(value);
+  };
+
+  const handleChangeE = (value) => {
+    setEmail(value);
+  };
+
+  const handleChangeP = (value) => {
+    setPassword(value);
+  };
+
+  function signup() {
+    const signupEmail = email;
+    const signupUsername = user;
+    const signupPassword = password;
+
+    const signupData = {
+      username: signupUsername,
+      email: signupEmail,
+      password: signupPassword,
+    };
+
+    fetch(`${api}signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": "123",
+      },
+      body: JSON.stringify(signupData),
+    })
+      .then((response) => {
+        if (response.status == 200) {
+          console.log("Signup successful");
+        } else {
+          alert("Signup failed. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
   return (
     <div className="app-signup-wrapper">
-      <input className="app-signup-input username" placeholder="Username" type="text" />
-      <input className="app-signup-input email" placeholder="Email" type="email" />
-      <input className="app-signup-input password" placeholder="Password" type="password" />
-      <div className="app-signup-button">Sign Up</div>
+      <input
+        className="app-signup-input username"
+        placeholder="Username"
+        type="text"
+        onChange={(e) => handleChangeU(e.target.value)}
+      />
+      <input
+        className="app-signup-input email"
+        placeholder="Email"
+        type="email"
+        onChange={(e) => handleChangeE(e.target.value)}
+      />
+      <input
+        className="app-signup-input password"
+        placeholder="Password"
+        type="password"
+        onChange={(e) => handleChangeP(e.target.value)}
+      />
+      <div className="app-signup-button" onClick={signup}>
+        Sign Up
+      </div>
     </div>
   );
 };

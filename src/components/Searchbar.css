@@ -10,32 +10,44 @@
 .app-mainsection-search-input-wrapper{
   background: white;
   border: solid .25rem #F83285;
-  border-radius: 20px;
+  border-radius: 30px;
   overflow: hidden;
   width: 60%;
   min-width: 300px;
   height: 3rem;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .app-mainsection-search-input-wrapper input{
   height: 100%;
-  width: 100%;
+  width: 88%;
   padding: 0 0 0 1rem;
   outline: none;
   border: none;
   font-size: 1.2rem;
 }
 
-.app-mainsection-search-input-wrapper + p{
-  margin-top: 1rem;
-  font-size: 1.5rem;
+.app-search-toggle-wrapper{
+  width: 12%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-span{
-  color: #F83285;
-  text-decoration: underline;
-  cursor: pointer;
+.app-search-toggle{
+  width: 90%;
+  height: 80%;
+  border-radius: 20px;
+  border: solid .25rem #F83285;
+  display: grid;
+  grid-template-rows: 2 50%;
 }
+
+.app-search-toggle-switch{
+  height: 1.4rem;
+  width: 1.4rem;
+  background: #000;
+}
+

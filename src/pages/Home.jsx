@@ -8,6 +8,7 @@ import "./Home.css";
 const Home = () => {
   const [isPopup, setIsPopup] = useState(true);
   const [isPopCalled, setIsPopCalled] = useState(true);
+  const [isUserLoggedIn, SetIsUserLoggedIn] = useState(true);
 
   return (
     <div className="app-home-wrapper">

@@ -6,8 +6,12 @@ const Searchbar = () => {
     <div className="app-mainsection-search-wrapper">
       <div className="app-mainsection-search-input-wrapper">
         <input type="text" placeholder="Search by class..." />
+        <div className="app-search-toggle-wrapper">
+          <div className="app-search-toggle">
+            <div className="app-search-toggle-switch"></div>
+          </div>
+        </div>
       </div>
-      <p>I'd like to look up a <span>professor</span> by name</p>
     </div>
   );
 };
