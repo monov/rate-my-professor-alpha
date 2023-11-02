@@ -2,7 +2,16 @@ import React, { useState } from "react";
 import "./Logpopup.css";
 import { MdCancel } from "react-icons/md";
 
-const Logpopup = ({ isPopup, setIsPopup, isPopCalled, setIsPopCalled }) => {
+const Logpopup = ({
+  isPopup,
+  setIsPopup,
+  isPopCalled,
+  setIsPopCalled,
+  isUserLoggedIn,
+  setIsUserLoggedIn,
+  user,
+  email,
+}) => {
   const [isLogin, setIsLogin] = useState(false);
   const handleClick = async () => {
     setIsPopup((prevIsPopup) => !prevIsPopup);
@@ -33,39 +42,22 @@ const Logpopup = ({ isPopup, setIsPopup, isPopCalled, setIsPopCalled }) => {
       <div onClick={handleClick} className="app-popup-esc">
         <MdCancel className="app-popup-esc-ico" />
       </div>
-      <div className="app-buttons-wrapper">
-        <div
-          className={isLogin ? "app-buttons login" : "app-buttons login-not"}
-          onClick={logClick}
-        >
-          Log In
-        </div>
-
-        <div
-          className={isLogin ? "app-buttons signup-not" : "app-buttons signup"}
-          onClick={signClick}
-        >
-          Sign Up
-        </div>
-      </div>
-
-      <div className="app-signup-google">Sign Up with Google</div>
-      <div className="app-log-popup-lines">
-        <div className="app-popup-line"></div>
-        <div className="app-popup-line-text">Or</div>
-        <div className="app-popup-line"></div>
-      </div>
-
-      <div className="app-login-signup-wrapper">
-        {isLogin ? <Applogin /> : <Appsignup />}
-      </div>
+      {isUserLoggedIn ? (
+        <LoggedIn email={email} user={user} setIsUserLoggedIn={setIsUserLoggedIn}/>
+      ) : (
+        <NotLoggedIn
+          isLogin={isLogin}
+          logClick={logClick}
+          signClick={signClick}
+        />
+      )}
     </div>
   );
 };
 
 export default Logpopup;
 
-const Applogin = () => {
+const Applogin = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const api = import.meta.env.VITE_API_BASE_URL;
@@ -132,7 +124,7 @@ const Applogin = () => {
   );
 };
 
-const Appsignup = () => {
+const Appsignup = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -171,6 +163,7 @@ const Appsignup = () => {
       .then((response) => {
         if (response.status == 200) {
           console.log("Signup successful");
+          setIsUserLoggedIn(true);
         } else {
           alert("Signup failed. Please try again.");
         }
@@ -203,5 +196,50 @@ const Appsignup = () => {
         Sign Up
       </div>
     </div>
+  );
+};
+
+const LoggedIn = ({ user, email, setIsUserLoggedIn }) => {
+  return (
+    <div className="app-user-loggedin-wrapper">
+      <div className="app-user-loggedin-show">Username: {user}</div>
+      <div className="app-user-loggedin-show">Email: {email}</div>
+      <div className="app-signup-button" onClick={() => {
+        setIsUserLoggedIn(false)
+      }}>Log Out</div>
+    </div>
+  );
+};
+
+const NotLoggedIn = ({ isLogin, logClick, signClick }) => {
+  return (
+    <>
+      <div className="app-buttons-wrapper">
+        <div
+          className={isLogin ? "app-buttons login" : "app-buttons login-not"}
+          onClick={logClick}
+        >
+          Log In
+        </div>
+
+        <div
+          className={isLogin ? "app-buttons signup-not" : "app-buttons signup"}
+          onClick={signClick}
+        >
+          Sign Up
+        </div>
+      </div>
+
+      <div className="app-signup-google">Sign Up with Google</div>
+      <div className="app-log-popup-lines">
+        <div className="app-popup-line"></div>
+        <div className="app-popup-line-text">Or</div>
+        <div className="app-popup-line"></div>
+      </div>
+
+      <div className="app-login-signup-wrapper">
+        {isLogin ? <Applogin /> : <Appsignup />}
+      </div>
+    </>
   );
 };

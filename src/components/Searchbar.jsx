@@ -9,6 +9,7 @@ const Searchbar = () => {
         <div className="app-search-toggle-wrapper">
           <div className="app-search-toggle">
             <div className="app-search-toggle-switch"></div>
+            <span>class</span>
           </div>
         </div>
       </div>

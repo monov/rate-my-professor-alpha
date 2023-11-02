@@ -235,3 +235,22 @@
   align-items: center;
   justify-content: center;
 }
+
+.app-user-loggedin-wrapper{
+  width: 60%;
+}
+
+.app-user-loggedin-show{
+  margin-top: 1rem;
+  height: 4rem;
+  line-height: 4rem;
+  width: 100%;
+  border-radius: 20px;
+  padding: 0 0 0 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  background: #e0e0e0;
+  box-shadow:  13px 13px 26px #bebebe,
+             -13px -13px 26px #ffffff;
+  border: none;
+}
