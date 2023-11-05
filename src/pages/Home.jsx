@@ -9,15 +9,49 @@ const Home = () => {
   const [isPopup, setIsPopup] = useState(true);
   const [isPopCalled, setIsPopCalled] = useState(true);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [userShow, setUserShow] = useState("")
+  const [emailShow, setEmailShow] = useState("")
+  const api = import.meta.env.VITE_API_BASE_URL;
   useEffect(() => {
-    setIsUserLoggedIn(true)
+    auth()
   }, [])
+
+  const auth = async () => {
+    try {
+      const response = await fetch(`${api}auth`);
+      if (response.ok) {
+        const data = await response.json(); 
+        console.log(data);
+      } else {
+        console.error("Failed to fetch data:", response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  
 
   return (
     <div className="app-home-wrapper">
-      <Navbar setIsPopCalled={setIsPopCalled} isPopup={isPopup} setIsPopup={setIsPopup} />
+      <Navbar
+        setIsPopCalled={setIsPopCalled}
+        isPopup={isPopup}
+        setIsPopup={setIsPopup}
+      />
       <Mainsection isPopup={isPopup} setIsPopup={setIsPopup} />
-      <Logpopup  isPopCalled={isPopCalled} setIsPopCalled={setIsPopCalled} isPopup={isPopup} setIsPopup={setIsPopup} isUserLoggedIn={isUserLoggedIn} setIsUserLoggedIn={setIsUserLoggedIn}/>
+      <Logpopup
+        userShow={userShow}
+        setUserShow={setUserShow}
+        emailShow={emailShow}
+        setEmailShow={setEmailShow}
+        isPopCalled={isPopCalled}
+        setIsPopCalled={setIsPopCalled}
+        isPopup={isPopup}
+        setIsPopup={setIsPopup}
+        isUserLoggedIn={isUserLoggedIn}
+        setIsUserLoggedIn={setIsUserLoggedIn}
+      />
     </div>
   );
 };

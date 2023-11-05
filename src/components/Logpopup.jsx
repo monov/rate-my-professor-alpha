@@ -11,6 +11,10 @@ const Logpopup = ({
   setIsUserLoggedIn,
   user,
   email,
+  userShow,
+  setUserShow,
+  emailShow,
+  setEmailShow,
 }) => {
   const [isLogin, setIsLogin] = useState(false);
   const handleClick = async () => {
@@ -43,12 +47,25 @@ const Logpopup = ({
         <MdCancel className="app-popup-esc-ico" />
       </div>
       {isUserLoggedIn ? (
-        <LoggedIn email={email} user={user} setIsUserLoggedIn={setIsUserLoggedIn}/>
+        <LoggedIn
+          userShow={userShow}
+          setUserShow={setUserShow}
+          emailShow={emailShow}
+          setEmailShow={setEmailShow}
+          email={email}
+          user={user}
+          setIsUserLoggedIn={setIsUserLoggedIn}
+        />
       ) : (
         <NotLoggedIn
+          userShow={userShow}
+          setUserShow={setUserShow}
+          emailShow={emailShow}
+          setEmailShow={setEmailShow}
           isLogin={isLogin}
           logClick={logClick}
           signClick={signClick}
+          setIsUserLoggedIn={setIsUserLoggedIn}
         />
       )}
     </div>
@@ -56,6 +73,8 @@ const Logpopup = ({
 };
 
 export default Logpopup;
+
+//APP LOGIN, login side of popup
 
 const Applogin = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
   const [user, setUser] = useState("");
@@ -91,6 +110,9 @@ const Applogin = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
 
       if (response.status === 200) {
         console.log("vse chetka");
+          setUserShow(loginUsername);
+          setEmailShow(response.email);
+          setIsUserLoggedIn(true);
       } else if (response.status === 401) {
         alert("Login failed. Please check your credentials.");
       } else {
@@ -124,7 +146,16 @@ const Applogin = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
   );
 };
 
-const Appsignup = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
+// APP SIGN UP registartion side of Pop Up
+
+const Appsignup = ({
+  isUserLoggedIn,
+  setIsUserLoggedIn,
+  setUserShow,
+  userShow,
+  emailShow,
+  setEmailShow,
+}) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -163,6 +194,8 @@ const Appsignup = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
       .then((response) => {
         if (response.status == 200) {
           console.log("Signup successful");
+          setUserShow(signupUsername);
+          setEmailShow(signupEmail);
           setIsUserLoggedIn(true);
         } else {
           alert("Signup failed. Please try again.");
@@ -199,19 +232,37 @@ const Appsignup = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
   );
 };
 
-const LoggedIn = ({ user, email, setIsUserLoggedIn }) => {
+// LOGGEDIN
+
+const LoggedIn = ({ setIsUserLoggedIn, userShow, emailShow }) => {
   return (
     <div className="app-user-loggedin-wrapper">
-      <div className="app-user-loggedin-show">Username: {user}</div>
-      <div className="app-user-loggedin-show">Email: {email}</div>
-      <div className="app-signup-button" onClick={() => {
-        setIsUserLoggedIn(false)
-      }}>Log Out</div>
+      <div className="app-user-loggedin-show">Username: {userShow}</div>
+      <div className="app-user-loggedin-show">Email: {emailShow}</div>
+      <div
+        className="app-signup-button"
+        onClick={() => {
+          setIsUserLoggedIn(false);
+        }}
+      >
+        Log Out
+      </div>
     </div>
   );
 };
 
-const NotLoggedIn = ({ isLogin, logClick, signClick }) => {
+// NOT LOGGEDIN!!!!
+
+const NotLoggedIn = ({
+  emailShow,
+  setEmailShow,
+  isLogin,
+  logClick,
+  signClick,
+  setIsUserLoggedIn,
+  userShow,
+  setUserShow,
+}) => {
   return (
     <>
       <div className="app-buttons-wrapper">
@@ -238,7 +289,23 @@ const NotLoggedIn = ({ isLogin, logClick, signClick }) => {
       </div>
 
       <div className="app-login-signup-wrapper">
-        {isLogin ? <Applogin /> : <Appsignup />}
+        {isLogin ? (
+          <Applogin
+            setIsUserLoggedIn={setIsUserLoggedIn}
+            userShow={userShow}
+            setUserShow={setUserShow}
+            emailShow={emailShow}
+            setEmailShow={setEmailShow}
+          />
+        ) : (
+          <Appsignup
+            setIsUserLoggedIn={setIsUserLoggedIn}
+            userShow={userShow}
+            setUserShow={setUserShow}
+            emailShow={emailShow}
+            setEmailShow={setEmailShow}
+          />
+        )}
       </div>
     </>
   );
