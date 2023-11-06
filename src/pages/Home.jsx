@@ -18,9 +18,15 @@ const Home = () => {
 
   const auth = async () => {
     try {
-      const response = await fetch(`${api}auth`);
+      const response = await fetch(`${api}auth`, {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json', 
+        },
+      });
+  
       if (response.ok) {
-        const data = await response.json(); 
+        const data = await response.json();
         console.log(data);
       } else {
         console.error("Failed to fetch data:", response.status, response.statusText);

@@ -76,7 +76,7 @@ export default Logpopup;
 
 //APP LOGIN, login side of popup
 
-const Applogin = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
+const Applogin = ({ isUserLoggedIn, setIsUserLoggedIn, setUserShow, setEmailShow }) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const api = import.meta.env.VITE_API_BASE_URL;
@@ -110,9 +110,9 @@ const Applogin = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
 
       if (response.status === 200) {
         console.log("vse chetka");
-          setUserShow(loginUsername);
-          setEmailShow(response.email);
-          setIsUserLoggedIn(true);
+        setUserShow(loginUsername);
+        setEmailShow(response.email);
+        setIsUserLoggedIn(true);
       } else if (response.status === 401) {
         alert("Login failed. Please check your credentials.");
       } else {
