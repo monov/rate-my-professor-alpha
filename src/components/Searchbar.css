@@ -28,30 +28,97 @@
   font-size: 1.2rem;
 }
 
-.app-search-toggle-wrapper{
-  width: 12%;
-  height: 100%;
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 7rem;
+  height: 3rem;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #F83285;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-style: solid;
+  border-color: #F83285;
+  border-width: 0.25rem;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 2rem;
+  width: 2rem;
+  bottom: 0.2rem;
+  left: 0.5rem;
+  background-color: white;
+  border-style: solid;
+  border-color: #F83285;
+  border-width: 1px;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: white;
+  border-style: solid;
+  border-color: #F83285;
+  border-width: 0.25rem;
+  
+}
+
+input:checked + .slider:before {
+  left: calc(100% - 2.5rem); /* Move the circle to the end */
+  background-color:;
+  border-style: solid;
+  border-color: #F83285;
+  border-width: 1px;
+}
+
+.slider.round {
+  border-radius: 30px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Add these styles to your existing CSS */
+.text.class-text, .text.prof-text {
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
+  width: 50%; /* Adjust the width as needed */
+  top: 0;
+  font-size: 1.2rem;
+  transition: transform 0.4s;
 }
 
-.app-search-toggle{
-  width: 90%;
-  height: 80%;
-  border-radius: 20px;
-  border: solid .25rem #F83285;
-  display: flex;
-  align-items: center;
-  justify-content: start;
+.text.class-text {
+  color: #F83285;
 }
 
-.app-search-toggle-switch{
-  height: 1.4rem;
-  width: 1.4rem;
-  margin-left: .05rem;
-  background: #F83285;
-  border-radius: 50%;
-  align-self: center;
+.text.prof-text {
+  color: white;
+  transform: translateX(100%); /* Move the text off to the right initially */
 }
+
+input:checked + .slider .class-text {
+  transform: translateX(-100%); /* Move the "class" text to the left when the input is checked */
+}
+
 
