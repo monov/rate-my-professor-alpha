@@ -28,6 +28,13 @@
   font-size: 1.2rem;
 }
 
+.switch-wrapper{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -51,9 +58,7 @@
   background-color: #F83285;
   -webkit-transition: .4s;
   transition: .4s;
-  border-style: solid;
-  border-color: #F83285;
-  border-width: 0.25rem;
+  border: solid #F83285 0.25rem;
 }
 
 .slider:before {
@@ -81,7 +86,7 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   left: calc(100% - 2.5rem); /* Move the circle to the end */
-  background-color:;
+  background-color:#F83285;
   border-style: solid;
   border-color: #F83285;
   border-width: 1px;
