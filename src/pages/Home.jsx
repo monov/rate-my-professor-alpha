@@ -19,7 +19,7 @@ const Home = () => {
   const auth = async () => {
     try {
       const response = await fetch(`${api}auth`, {
-        method: 'GET', 
+        method: 'POST', 
         headers: {
           'Content-Type': 'application/json', 
         },
