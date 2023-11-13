@@ -19,11 +19,13 @@ const Home = () => {
   const auth = async () => {
     try {
       const response = await fetch(`${api}auth`, {
-        method: 'POST', 
+        method: 'GET', 
         headers: {
           'Content-Type': 'application/json', 
         },
+        withCredentials: true,
       });
+      
   
       if (response.ok) {
         const data = await response.json();
