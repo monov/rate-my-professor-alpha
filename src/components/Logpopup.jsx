@@ -76,7 +76,12 @@ export default Logpopup;
 
 //APP LOGIN, login side of popup
 
-const Applogin = ({ isUserLoggedIn, setIsUserLoggedIn, setUserShow, setEmailShow }) => {
+const Applogin = ({
+  isUserLoggedIn,
+  setIsUserLoggedIn,
+  setUserShow,
+  setEmailShow,
+}) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const api = import.meta.env.VITE_API_BASE_URL;
@@ -105,13 +110,16 @@ const Applogin = ({ isUserLoggedIn, setIsUserLoggedIn, setUserShow, setEmailShow
           "Content-Type": "application/json",
           "x-api-key": "123",
         },
+        credentials: "include",
+        withCredentials: true,
         body: JSON.stringify(loginData),
       });
 
       if (response.status === 200) {
         console.log("vse chetka");
+        let data = await response.json();
         setUserShow(loginUsername);
-        setEmailShow(response.email);
+        setEmailShow(data.email);
         setIsUserLoggedIn(true);
       } else if (response.status === 401) {
         alert("Login failed. Please check your credentials.");
@@ -190,12 +198,14 @@ const Appsignup = ({
         "x-api-key": "123",
       },
       body: JSON.stringify(signupData),
+      credentials: "include",
+      withCredentials: true,
     })
       .then((response) => {
         if (response.status == 200) {
           console.log("Signup successful");
           setUserShow(signupUsername);
-          setEmailShow(signupEmail);
+          setEmailShow(response.email);
           setIsUserLoggedIn(true);
         } else {
           alert("Signup failed. Please try again.");
@@ -235,16 +245,37 @@ const Appsignup = ({
 // LOGGEDIN
 
 const LoggedIn = ({ setIsUserLoggedIn, userShow, emailShow }) => {
+  const api = import.meta.env.VITE_API_BASE_URL;
+  const handleLogOut = async () => {
+    setIsUserLoggedIn(false);
+    try {
+      const response = await fetch(`${api}logout`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        withCredentials: true,
+      });
+
+      if (response.status == 200) {
+        setIsUserLoggedIn(false);
+      } else {
+        console.error(
+          "Failed to fetch data:",
+          response.status,
+          response.statusText
+        );
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
   return (
     <div className="app-user-loggedin-wrapper">
       <div className="app-user-loggedin-show">Username: {userShow}</div>
       <div className="app-user-loggedin-show">Email: {emailShow}</div>
-      <div
-        className="app-signup-button"
-        onClick={() => {
-          setIsUserLoggedIn(false);
-        }}
-      >
+      <div className="app-signup-button" onClick={handleLogOut}>
         Log Out
       </div>
     </div>
@@ -263,6 +294,7 @@ const NotLoggedIn = ({
   userShow,
   setUserShow,
 }) => {
+  const api = import.meta.env.VITE_API_BASE_URL;
   return (
     <>
       <div className="app-buttons-wrapper">

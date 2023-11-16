@@ -9,36 +9,35 @@ const Home = () => {
   const [isPopup, setIsPopup] = useState(true);
   const [isPopCalled, setIsPopCalled] = useState(true);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-  const [userShow, setUserShow] = useState("")
-  const [emailShow, setEmailShow] = useState("")
+  const [userShow, setUserShow] = useState("");
+  const [emailShow, setEmailShow] = useState("");
   const api = import.meta.env.VITE_API_BASE_URL;
   useEffect(() => {
-    auth()
-  }, [])
+    auth();
+  }, []);
 
   const auth = async () => {
     try {
       const response = await fetch(`${api}auth`, {
-        method: 'POST', 
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json', 
+          "Content-Type": "application/json",
         },
+        credentials: "include",
         withCredentials: true,
       });
-      
-  
-      if (response.ok) {
+
+      if (response.status == 200) {
         const data = await response.json();
-        console.log(data);
-      } else {
-        console.error("Failed to fetch data:", response.status, response.statusText);
+        console.log(data.email, data.username);
+        setIsUserLoggedIn(true);
+        setUserShow(data.username);
+        setEmailShow(data.email);
       }
     } catch (error) {
       console.error("Error:", error);
     }
   };
-
-  
 
   return (
     <div className="app-home-wrapper">

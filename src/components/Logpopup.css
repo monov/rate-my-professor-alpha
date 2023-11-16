@@ -96,13 +96,14 @@
   font-size: 1.8rem;
   font-weight: 900;
   margin-left: 1rem;
-  box-shadow:  13px 13px 26px #bebebe,
+  box-shadow: 13px 13px 26px #bebebe,
              -13px -13px 26px #ffffff;
   transition: .4s;
   cursor: pointer;
 }
 
 .app-signup-google{
+  text-decoration: none;
   margin-top: 1rem;
   background: linear-gradient(90deg, #BE31B8 55%, #FF1EB2);
   color: white;
