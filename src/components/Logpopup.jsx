@@ -313,7 +313,7 @@ const NotLoggedIn = ({
         </div>
       </div>
 
-      <div className="app-signup-google">Sign Up with Google</div>
+      <a href={`${api}login/oauth2`} className="app-signup-google">Sign Up with Google</a>
       <div className="app-log-popup-lines">
         <div className="app-popup-line"></div>
         <div className="app-popup-line-text">Or</div>
