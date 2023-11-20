@@ -1,0 +1,58 @@
+.prof-card{
+    display: flex;
+    align-items: center;
+
+    background-color: #D9D9D9;
+    border-radius: 25px;
+    padding: 25px 35px;
+
+    color: black;
+    list-style: none;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+.prof-card-image{
+    width: 216px;
+    height: 201px;
+    object-fit: fill;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+.prof-card-name{
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+}
+.prof-card-university{
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+}
+.prof-card-stats{
+    display: flex;
+}
+.prof-card-overall{
+    font-weight: 700;
+    font-size: 85px;
+    line-height: 102px;
+    margin-right: 15px;
+}
+.prof-card-rating{
+    width: 200px;
+    height: 20px;
+    background: #BDBDBD;
+    border-radius: 20px;
+
+}
+.prof-card-rate-len{
+    height: 20px;
+    border-radius: 20px;
+    background: #670F5E;
+}
+.prof-card-rating-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
