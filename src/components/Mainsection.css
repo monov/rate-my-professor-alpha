@@ -54,16 +54,62 @@
 }
 
 .app-main-last-comment{
-  background: white;
+  border: solid 2px rgba(255, 255, 255, 0.3);
+  background-color: var(--glass-color);
+  backdrop-filter: blur(20px);
   width: 50%;
   height: 36dvh;
   border-radius: 20px;
-  text-align: center;
+  text-align: left;
   font-size: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.app-lastcomment-profname{
+  font-size: 1rem;
+}
+
+.app-lastcomment-profname span{
+  background: var(--accent-color);
+  color: white;
+  border-radius: 20px;
+}
+
+.app-lastcomment-rate-wrapper{
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.app-main-last-comment-rest{
+  
+}
+
+.app-main-last-comment-wrapper{
+  display: flex;
+  flex-direction: row;
+  width: 94%;
+}
+
+.app-lastcomment-rate{
+  height: 5rem;
+  width: 5rem;
+  background: green;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: white;
+  border-radius: 20px;
+}
+
+.app-lastcomment-comment{
+  font-size: 1.2rem;
+  margin-top: 1rem;
 }
 
 
