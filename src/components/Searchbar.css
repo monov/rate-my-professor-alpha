@@ -21,7 +21,7 @@
 
 .app-mainsection-search-input-wrapper input{
   height: 100%;
-  width: 88%;
+  width: 80%;
   padding: 0 0 0 1rem;
   outline: none;
   border: none;
@@ -29,102 +29,54 @@
 }
 
 .switch-wrapper{
+  display: flex;
+  justify-content: right;
+  align-items: center;
   flex: 1;
+  height: 90%;
+  transition: .2s;
+}
+
+.switch{
+  margin-right: .5rem;
+  height: 90%;
+  min-width: 5rem;
+  border-radius: 20px;
   display: flex;
   align-items: center;
-  justify-content: end;
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 7rem;
-  height: 3rem;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
+  border: solid 2px var(--accent-color);
+  transition: .2s;
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #F83285;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border: solid #F83285 0.25rem;
 }
 
-.slider:before {
+.slider{
+  margin-left: .2rem;
+  margin-right: .2rem;
+  background: var(--accent-color);
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius:  50%;
+  transition: .2s;
+  z-index: 10;
+}
+
+.switch.class .slider{
+  transform: translateX(174%);
+}
+
+.switch.prof .slider{
+  transform: translateX(0);
+}
+
+.switch span{
+  transition: .2s;
+}
+
+.switch span:nth-of-type(2){
   position: absolute;
-  content: "";
-  height: 2rem;
-  width: 2rem;
-  bottom: 0.2rem;
-  left: 0.5rem;
-  background-color: white;
-  border-style: solid;
-  border-color: #F83285;
-  border-width: 1px;
-  -webkit-transition: .4s;
-  transition: .4s;
+  margin-left: .7rem;
 }
 
-input:checked + .slider {
-  background-color: white;
-  border-style: solid;
-  border-color: #F83285;
-  border-width: 0.25rem;
-  
+.none{
+  opacity: 0;
 }
-
-input:checked + .slider:before {
-  left: calc(100% - 2.5rem); /* Move the circle to the end */
-  background-color:#F83285;
-  border-style: solid;
-  border-color: #F83285;
-  border-width: 1px;
-}
-
-.slider.round {
-  border-radius: 30px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-/* Add these styles to your existing CSS */
-.text.class-text, .text.prof-text {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 50%; /* Adjust the width as needed */
-  top: 0;
-  font-size: 1.2rem;
-  transition: transform 0.4s;
-}
-
-.text.class-text {
-  color: #F83285;
-}
-
-.text.prof-text {
-  color: white;
-  transform: translateX(100%); /* Move the text off to the right initially */
-}
-
-input:checked + .slider .class-text {
-  transform: translateX(-100%); /* Move the "class" text to the left when the input is checked */
-}
-
-
-

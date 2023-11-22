@@ -87,7 +87,9 @@
 }
 
 .app-main-last-comment-rest{
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .app-main-last-comment-wrapper{
