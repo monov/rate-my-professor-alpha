@@ -5,6 +5,11 @@
   margin: 0;
 }
 
+::selection{
+  background: var(--accent-color);
+  color: white;
+}
+
 :root{
   --main-color: black;
   --glass-color: rgba(255, 255, 255, 0.4);
