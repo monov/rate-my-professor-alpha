@@ -40,8 +40,9 @@ const Mainsection = ({ isPopup, setIsPopup }) => {
               Enter the class name to get started
             </p>
           </div>
-
-          <Searchbar />
+          <div className="app-mainsection-search-wrapper">
+            <Searchbar />
+          </div>
         </div>
       </div>
       <div className="app-construct-blox">

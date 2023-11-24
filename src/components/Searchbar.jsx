@@ -22,7 +22,6 @@ const Searchbar = () => {
   };
 
   return (
-    <div className="app-mainsection-search-wrapper">
       <div className="app-mainsection-search-input-wrapper">
         <input
           type="text"
@@ -44,7 +43,6 @@ const Searchbar = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

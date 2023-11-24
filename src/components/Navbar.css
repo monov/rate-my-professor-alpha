@@ -5,13 +5,13 @@
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-direction: row;
   min-width: 350px;
 }
 
 .app-logo{
   font-size: 1rem;
-  margin-left: 4rem;
   font-weight: 900;
   cursor: pointer;
   color: var(--accent-color);
@@ -24,7 +24,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-right: 4rem;
+
 }
 
 .app-account-pfp-wrapper{
@@ -62,7 +62,7 @@
 
   .app-logo{
     font-size: 2rem;
-    margin-left: 10rem;
+
   }
 
   .app-account-pfp-wrapper{
@@ -70,9 +70,7 @@
     width: 4rem;
   }
 
-  .app-account{
-    margin-right: 10rem;
-  }
+
 }
 
 @media (1000px <= width <= 2000px){
@@ -82,7 +80,7 @@
 
   .app-logo{
     font-size: 1.6rem;
-    margin-left: 6rem;
+
   }
 
   .app-account-pfp-wrapper{
@@ -90,9 +88,6 @@
     width: 3rem;
   }
 
-  .app-account{
-    margin-right: 6rem;
-  }
 }
 
 @media (820px <= width <= 1000px) {

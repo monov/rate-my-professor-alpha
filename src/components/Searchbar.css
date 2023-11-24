@@ -1,18 +1,11 @@
-.app-mainsection-search-wrapper{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 50%;
-  width: 100%;
-}
+
 
 .app-mainsection-search-input-wrapper{
   background: white;
   border: solid .25rem #F83285;
   border-radius: 30px;
   overflow: hidden;
-  width: 60%;
+  width: 100%;
   min-width: 300px;
   height: 3rem;
   display: flex;
