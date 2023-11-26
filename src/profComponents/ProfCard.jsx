@@ -14,7 +14,7 @@ export const ProfCard = ({fullName , university , photoreference, ratingA ,ratin
           <div className='prof-card-rating-wrapper'>
             {ratingA.map(item =>(
               <div className='prof-card-rating'>
-                <div className='prof-card-rate-len' style={{width : item/5*100}}></div>
+                <div className='prof-card-rate-len' style={{width : item/5*100 }}></div>
                </div>
             ))}
           </div>
