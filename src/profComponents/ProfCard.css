@@ -120,10 +120,6 @@
 }
 @media (width <550px) {
     .prof-card{
-        padding: 10px;
-    }
-}@media (width < 450px){
-    .prof-card-rating{
-        width: 100px;
+        padding: 30px;
     }
 }

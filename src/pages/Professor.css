@@ -18,6 +18,7 @@
 
 .proffesor-container{
     max-width: 60%;
+    min-width: 300px;
     margin: auto;
     z-index: 2;
 }
@@ -36,7 +37,7 @@
     display: block;
     padding: 0 10px;
     width: max-content;
-    
+
     border-radius: 18.57px;
     background: rgba(30, 30, 36, 0.84);
     box-shadow: 2.97119px 3.71399px 2.22839px 3.71399px rgba(0, 0, 0, 0.50);
