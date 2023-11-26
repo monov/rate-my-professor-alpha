@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  min-width: 350px;
+  min-width: 100px;
 }
 
 .app-logo{
@@ -20,9 +20,8 @@
 .app-account{
   font-size: 36px;
   height: 100%;
-  /* flex: 1; */
   display: flex;
-  /* justify-content: flex-end; */
+
   align-items: center;
 
 }
