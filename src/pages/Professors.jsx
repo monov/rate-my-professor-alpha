@@ -1,6 +1,6 @@
 import React from 'react'
 import { ProfCard } from '../profComponents/ProfCard'
-import './Professor.css'
+import './Professors.css'
 import Navbar from "../components/Navbar";
 import Searchbar from '../components/Searchbar';
 

@@ -1,0 +1,23 @@
+.comment-about{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.comment-title{
+    color: #F83285;
+    text-align: start;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.comment-text{
+    color: #F4F4F4;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
