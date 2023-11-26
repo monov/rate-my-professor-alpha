@@ -24,7 +24,6 @@ body{
   background-position: 5% 70%;
   background-size: 150%;
   scrollbar-width: none;
-  overflow-y: hidden;
 }
 
 ::-webkit-scrollbar{

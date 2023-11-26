@@ -18,6 +18,7 @@ export const ProfCard = ({fullName , university , photoreference, ratingA ,ratin
                </div>
             ))}
           </div>
+          
       </div>
       <div className='prof-card-info'>
           <h3 className='prof-card-name'>{fullName}</h3>

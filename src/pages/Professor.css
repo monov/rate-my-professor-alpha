@@ -17,7 +17,7 @@
 }
 
 .proffesor-container{
-    max-width: 60%;
+    max-width: 90%;
     min-width: 300px;
     margin: auto;
     z-index: 2;
@@ -42,9 +42,9 @@
     background: rgba(30, 30, 36, 0.84);
     box-shadow: 2.97119px 3.71399px 2.22839px 3.71399px rgba(0, 0, 0, 0.50);
 
-    font-weight: 700;
-    font-size: 35px;
-    line-height: 84px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 40px;
     margin-top: 47px;
     margin-bottom: 33px;
 }
@@ -52,8 +52,8 @@
     max-width: 100%;
     width: 100%;
 
-    max-height: 670px;
-    height: 100%;
+    max-height: calc(100vh - 300px);
+    min-height: 150px;
     overflow-y: scroll;
 
     display: grid;
@@ -63,7 +63,7 @@
 
 }
 .professor-cards::-webkit-scrollbar{
-    width: 25.966px;
+    width: 24.966px;
     margin-left: 30px;
   }
 
@@ -82,9 +82,26 @@
     height: 100%;
 }
 
-@media (width < 1800px) {
+@media (width < 1200px) {
     .professor-cards{
         grid-template-columns: repeat(1, auto);
+        justify-content: start;
+    }
+}
+
+@media (width <550px) {
+    .professor-cards::-webkit-scrollbar{
+        width: 10.966px;
+        margin-left: 30px;
+      }
+    .professor-cards{
         justify-content: center;
+    }
+    .prof-card-stats{
+        flex-direction: column;
+        gap: 30px;
+    }
+    .prof-card{
+        padding: 30px;
     }
 }

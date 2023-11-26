@@ -7,8 +7,9 @@ import { Professors } from "./pages/Professors";
 function App() {
   return (
     <Routes>
+
       <Route path="/" element={<Home/>}></Route>
-      <Route path = "/professors" element = {<Professors></Professors>}></Route>
+      <Route path = "/professors/*" element = {<Professors></Professors>}></Route>
     </Routes>
   )
 }

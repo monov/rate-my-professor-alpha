@@ -60,6 +60,7 @@ export const Professors = () => {
         {data.map(item =>(
           <ProfCard {...item}/>
         ))}
+        <div style={{height:'calc(100vh - 300px -147px)'}}></div>
         </div>
       </div>
     </div>
