@@ -4,9 +4,11 @@
     flex-direction: column;
     align-items: center;
 
-    border-radius: 18.57px;
-    background: rgba(30, 30, 36, 0.84);
-    box-shadow: 2.97119px 3.71399px 2.22839px 3.71399px rgba(0, 0, 0, 0.50);
+    border-radius: 20px;
+    border: solid 2px rgba(255, 255, 255, 0.3);
+    background-color: var(--glass-color);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
     padding: 21px 48px;
 
@@ -19,7 +21,6 @@
 .prof-card-image-wraper{
     max-width: 160px;
     width: 100%;
-
     max-height: 160px;
     height: 100%;
 
@@ -41,7 +42,7 @@
     left: 0;
     top: 0;
 
-    border-radius: 50%;
+    border-radius: 20px;
     background: var(--accent-color);
 }
 .prof-card-image{
@@ -50,13 +51,12 @@
 
     transform: translate(12px,14px);
     object-fit: fill;
-    border-radius: 50%;
 
 }
 .prof-card-name{
     text-transform: capitalize;
 
-    color: #FFF;
+    color: #1f1f1f;
 
     text-align: center;
     font-size: 30.911px;
@@ -65,7 +65,7 @@
     line-height: normal;
 }
 .prof-card-university{
-    color: #CFCFCF;
+    color: var(--accent-color);
 
     text-align: center;
     font-size: 20.608px;
@@ -76,6 +76,7 @@
 .prof-card-stats{
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-bottom: 15px;
 }
 .prof-card-overall{
@@ -88,7 +89,7 @@
     padding: 15px 8px;
     
     background: var(--accent-color);
-    border-radius: 50%;
+    border-radius: 10px;
 
     font-size: 39.973px;
     font-style: normal;
@@ -99,12 +100,13 @@
     width: 200px;
     height: 20px;
     background: #BDBDBD;
-    border-radius: 20px;
+    border-radius: 5px;
 
 }
 .prof-card-rate-len{
     height: 20px;
     border-radius: 20px;
+    border-radius: 5px;
     background: var(--accent-color);
 }
 .prof-card-rating-wrapper{
