@@ -7,6 +7,7 @@ import { ProfPage } from "./pages/ProfPage";
 
 function App() {
   return (
+    
     <Routes>
 
       <Route path="/" element={<Home/>}></Route>

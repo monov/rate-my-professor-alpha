@@ -4,7 +4,7 @@ import './ProfPage.css'
 import { Comment } from '../components/Comment'
 
 export const ProfPage = () => {
-    const [activeStars , setActiveStars] = useState(0)
+    const [activeStars , setActiveStars] = useState(1)
     const [howeredStars , setHoweredSrars] = useState(0)
     const data ={
         id:1,
@@ -37,7 +37,7 @@ export const ProfPage = () => {
                     <div className='prof-main-stars'>
                         {stars.map((item, i)=>{
                                 return (
-                                    <div className={i<howeredStars?'main-stars active': 'main-stars'} 
+                                    <div className={i < howeredStars?'main-stars active': 'main-stars'} 
                                         onMouseEnter={()=> setHoweredSrars(i+1)}
                                         onMouseLeave={()=> setHoweredSrars(activeStars)}
                                         onClick={()=>{
@@ -65,7 +65,7 @@ export const ProfPage = () => {
                     <div className='prof-card-rating-wrapper'>
                     {data.ratingA.map((item,i) =>(
                         <div className='prof-card-rating-line'>
-                        {i}
+                        {i+1}
                         <div className='prof-card-rating'>
                              <div className='prof-card-rate-len' style={{width : item/5*100 }}></div>
                         </div>
@@ -93,7 +93,7 @@ export const ProfPage = () => {
                 </div>
             </div>
          </div>
-        </div>
+         </div>
     
       )
 }
