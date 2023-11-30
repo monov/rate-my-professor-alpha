@@ -10,6 +10,7 @@ export const Comment = (props) => {
     <div className='comment-about'>
         <h5 className='comment-title'>{props.name}</h5>
         <div className='prof-main-stars'>
+            {console.log('bob')}
         {stars.map((item, i)=>{
         return (
             <div className={i<props.activeStars?'main-stars active': 'main-stars'}>  
