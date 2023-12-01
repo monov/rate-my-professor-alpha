@@ -3,12 +3,12 @@ import './ProfCard.css'
 import Navbar from '../components/Navbar'
 import { NavLink } from 'react-router-dom'
 
-export const ProfCard = ({fullName , university , photoreference, ratingA ,rating, id}) => {
+export const ProfCard = ({fullName , university , photoreRerence, ratingA=[4,1,2,3] ,rating = 3, id}) => {
   return (
     <NavLink to = {`./${id}`} className='prof-card'>  
       <div className='prof-card-stats'>
         <div className='prof-card-image-wraper'>
-          <img src={photoreference} className='prof-card-image' alt="" />
+          <img src={photoreRerence} className='prof-card-image' alt="" />
           <div className='prof-card-overall'>{rating}</div>
         </div>
           <div className='prof-card-rating-wrapper'>

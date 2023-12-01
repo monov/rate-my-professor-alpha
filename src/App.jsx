@@ -11,8 +11,8 @@ function App() {
     <Routes>
 
       <Route path="/" element={<Home/>}></Route>
-      <Route path = "/professors" element = {<Professors></Professors>}></Route>
-      <Route path = "/professors/*" element = {<ProfPage></ProfPage>}></Route>
+      <Route path = "/professors/:profName" element = {<Professors></Professors>}></Route>
+      <Route path = "/professors/:profName/:id" element = {<ProfPage></ProfPage>}></Route>
     </Routes>
   )
 }

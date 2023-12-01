@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./Searchbar.css";
-import { redirect, useNavigate } from "react-router-dom";
+import { redirect, useNavigate, useParams } from "react-router-dom";
 
-const Searchbar = () => {
+const Searchbar = ({isMainPage}) => {
   const [inputValue, setInputValue] = useState("");
-  const [slider, setSlider] = useState();
+  const [slider, setSlider] = useState(false);
   const navigate = useNavigate();
 
   const handleInputChange = (event) => {
@@ -15,10 +15,14 @@ const Searchbar = () => {
     console.log(slider);
   };
   const handleRedirect = (e) => {
-    if (e.key == "Enter") {
-      console.log(e.key);
-      navigate(`./professors?search=${inputValue}`);
-    }
+    const currentPath = window.location.pathname;
+
+    const newPath = currentPath.replace(/\/professors\/(.*)/, `/professors/${inputValue}`)
+
+      if (e.key == "Enter" && inputValue) {
+        navigate(isMainPage ? `./professors/${inputValue}?searchByClass=${!slider}` : newPath + `?searchByClass=${!slider}`);
+      }
+
   };
 
   return (

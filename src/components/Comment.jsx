@@ -2,7 +2,6 @@ import React from 'react'
 import "./Comment.css"
 
 export const Comment = (props) => {
-    console.log(props);
 
     const stars = Array(5).fill('')
   return (

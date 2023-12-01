@@ -41,7 +41,7 @@ const Mainsection = ({ isPopup, setIsPopup }) => {
             </p>
           </div>
           <div className="app-mainsection-search-wrapper">
-            <Searchbar />
+            <Searchbar isMainPage={true}/>
           </div>
         </div>
       </div>

@@ -5,12 +5,13 @@ import './Professors.css'
 import Navbar from "../components/Navbar";
 import Searchbar from '../components/Searchbar';
 import Logpopup from "../components/Logpopup";
+import { useLocation, useParams } from "react-router-dom";
 
 const data = [{
     id:1,
     fullName:"john Smith",
     university:"Koc University",
-    photoreference: 'bob.png',
+    photoreRerence: 'bob.png',
     rating :4.5,
     ratingA:[4,5,1,2,3]
 },
@@ -52,15 +53,31 @@ const data = [{
 
 
 export const Professors = () => {
+
+
+  // const [data , setData] = useState([])
+
   const [isPopup, setIsPopup] = useState(true);
-const [isPopCalled, setIsPopCalled] = useState(true);
-const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-const [userShow, setUserShow] = useState("");
-const [emailShow, setEmailShow] = useState("");
-const api = import.meta.env.VITE_API_BASE_URL;
-useEffect(() => {
-  auth();
-}, []);
+  const [isPopCalled, setIsPopCalled] = useState(true);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [userShow, setUserShow] = useState("");
+  const [emailShow, setEmailShow] = useState("");
+  const api = import.meta.env.VITE_API_BASE_URL;
+
+  let {profName} = useParams();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const searchByClassValue = searchParams.get('searchByClass');
+
+  console.log(searchByClassValue);
+
+
+
+  useEffect(() => {
+    auth();
+    getProfs();
+  }, [profName]);
+
 
 const auth = async () => {
   try {
@@ -84,6 +101,29 @@ const auth = async () => {
     console.error("Error:", error);
   }
 };
+
+const getProfs = async ()=>{
+  try {
+    const response = await fetch(`${api}professors/${profName}?byName=${searchByClassValue}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      withCredentials: true,
+    });
+
+    if (response.status == 200) {
+      const data = await response.json();
+
+      // setData(data)
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+
 
 
   return (
@@ -111,7 +151,7 @@ const auth = async () => {
             setIsPopup={setIsPopup}
     
     />
-    <Searchbar/>
+    <Searchbar isMainPage={false}/>
     <div className='proffesor-home-wrapper'>
         <h1 className='professor-title'>class:PHY 102</h1>
         <div className='professor-cards'>

@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import './ProfPage.css'
 import { Comment } from '../components/Comment'
+import Logpopup from '../components/Logpopup'
 
 export const ProfPage = () => {
     const [activeStars , setActiveStars] = useState(1)
@@ -18,11 +19,60 @@ export const ProfPage = () => {
 
     const stars = Array(5).fill('')
 
+    const [isPopup, setIsPopup] = useState(true);
+    const [isPopCalled, setIsPopCalled] = useState(true);
+    const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+    const [userShow, setUserShow] = useState("");
+    const [emailShow, setEmailShow] = useState("");
+    const api = import.meta.env.VITE_API_BASE_URL;
+    useEffect(() => {
+      auth();
+    }, []);
+    
+    const auth = async () => {
+      try {
+        const response = await fetch(`${api}auth`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          withCredentials: true,
+        });
+    
+        if (response.status == 200) {
+          const data = await response.json();
+          console.log(data.email, data.username);
+          setIsUserLoggedIn(true);
+          setUserShow(data.username);
+          setEmailShow(data.email);
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+
     return (
         <div className='proffesor-bg'>
+                        <Logpopup
+        userShow={userShow}
+        setUserShow={setUserShow}
+        emailShow={emailShow}
+        setEmailShow={setEmailShow}
+        isPopCalled={isPopCalled}
+        setIsPopCalled={setIsPopCalled}
+        isPopup={isPopup}
+        setIsPopup={setIsPopup}
+        isUserLoggedIn={isUserLoggedIn}
+        setIsUserLoggedIn={setIsUserLoggedIn}
+      />
           <div className='professor-bg-color'>
             <div className='proffesor-container'>
-                <Navbar/>
+
+                <Navbar             
+                 setIsPopCalled={setIsPopCalled}
+                isPopup={isPopup}
+                 setIsPopup={setIsPopup}/>
                 <div className='prof-main-stats'>
                     <div className='prof-card-image-wraper'>
                         <img src={data.photoreference} className='prof-card-image' alt="" />
