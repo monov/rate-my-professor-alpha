@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     auth();
   }, []);
-
+ 
   const auth = async () => {
     try {
       const response = await fetch(`${api}auth`, {
