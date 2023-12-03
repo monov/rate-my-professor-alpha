@@ -6,12 +6,13 @@
     align-items: center;
     justify-content: space-around;
 
-    border-radius: 18.57px;
-    background: rgba(30, 30, 36, 0.84);
-    box-shadow: 2.97119px 3.71399px 2.22839px 3.71399px rgba(0, 0, 0, 0.50);
-}
+    border-radius: 20px;
+    border: solid 2px rgba(255, 255, 255, 0.3);
+    background-color: var(--glass-color);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);}
 .prof-main-name{
-    color: #FFF;
+    color: black;
 
     font-size: 41.86px;
     font-style: normal;
@@ -24,7 +25,7 @@
     margin-bottom: 27px;
 }
 .prof-main-from{
-    color: #CFCFCF;
+    color: black;
 
     font-size: 20px;
     font-style: normal;
@@ -51,7 +52,7 @@
 }
 
 .prof-main-overall{
-    color: #FFF;
+    color: black;
     font-size: 100px;
     font-style: normal;
     font-weight: 700;
@@ -69,7 +70,7 @@
     align-items: center;
     gap: 5px;
 
-    color: #CFCFCF;
+    color: black;
     text-align: center; 
     font-size: 30.234px;
     font-style: normal;
@@ -81,7 +82,7 @@
 
     display: grid;
 
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 1fr;
 
     gap: 60px;
 }
@@ -92,13 +93,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 27.085px;
-    background: rgba(30, 30, 36, 0.84);
-    box-shadow: 4.33356px 5.41695px 3.25017px 5.41695px rgba(0, 0, 0, 0.50);
+    border-radius: 20px;
+
+    border: solid 2px rgba(255, 255, 255, 0.3);
+    background-color: var(--glass-color);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .prof-main-text{
-    color: #CFCFCF;
+    color: black;
     text-align: justify;
     font-size: 20px;
     font-style: normal;
@@ -111,12 +115,19 @@
 .prof-main-comments-container{
     padding: 40px;
     width: 100%;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 27.085px;
-    background: rgba(30, 30, 36, 0.84);
-    box-shadow: 4.33356px 5.41695px 3.25017px 5.41695px rgba(0, 0, 0, 0.50);
+
+    border-radius: 20px;
+    border: solid 2px rgba(255, 255, 255, 0.3);
+    background-color: var(--glass-color);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+
+
     position: relative;
 }
 
@@ -127,7 +138,7 @@
     min-height: 300px;
 }
 .prof-main-comment-title{
-    color: #FFF;
+    color: black;
     font-size: 41.86px;
     font-style: normal;
     font-weight: 700;

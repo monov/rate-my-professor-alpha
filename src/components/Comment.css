@@ -3,6 +3,7 @@
     width: 100%;
     justify-content: space-between;
     margin-bottom: 15px;
+
 }
 
 .comment-title{
@@ -15,7 +16,7 @@
 }
 
 .comment-text{
-    color: #F4F4F4;
+    color: black;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;

@@ -4,18 +4,15 @@ import './ProfPage.css'
 import { Comment } from '../components/Comment'
 import Logpopup from '../components/Logpopup'
 
-export const ProfPage = () => {
+export const ProfPage = (props) => {
     const [activeStars , setActiveStars] = useState(1)
-    const [howeredStars , setHoweredSrars] = useState(0)
-    const data ={
-        id:1,
-    fullName:"john Smith",
-    university:"Koc University",
-    photoreference: 'bob.png',
-    rating :4.5,
-    ratingA:[4,5,1,2,3],
-    about:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum'
-    }
+    const [howeredStars , setHoweredSrars] = useState(1)
+    const data = props.searchResponse
+
+    const [comment , setComments] = useState([])
+
+
+    // console.log(data);
 
     const stars = Array(5).fill('')
 
@@ -25,8 +22,10 @@ export const ProfPage = () => {
     const [userShow, setUserShow] = useState("");
     const [emailShow, setEmailShow] = useState("");
     const api = import.meta.env.VITE_API_BASE_URL;
+
     useEffect(() => {
       auth();
+      getComments()
     }, []);
     
     const auth = async () => {
@@ -51,6 +50,26 @@ export const ProfPage = () => {
         console.error("Error:", error);
       }
     };
+    const getComments = async ()=>{
+        try{
+        const response = await fetch(`${api}reviews/${data.id}`,{
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+            withCredentials: true,
+        })
+        if(response.status == 200){
+            const comments = response.json()
+            setComments(comment)
+            console.log(comment);
+        }
+        }
+        catch {
+            console.error("Error:", error);
+        }
+    }
 
     return (
         <div className='proffesor-bg'>
@@ -79,8 +98,8 @@ export const ProfPage = () => {
                     </div>
                 <div className='prof-main-about'>
                 <div className='prof-main-name'>
-                    Prof. Elon Musk
-                    <span className='prof-main-from'>Koc University | class: PHYS 102</span>
+                    {data.fullName}
+                    <span className='prof-main-from'>{data.university}</span>
                 </div>
                 <div className='prof-main-rate'>
                     <span > Rate this professor:</span>
@@ -126,7 +145,7 @@ export const ProfPage = () => {
                 </div>
                 <div className='prof-main-info'>
                     <div className='prof-main-descripiton'>
-                        <h2 className='prof-main-name'>ABOUT</h2>
+                        <h2 className='prof-main-name'>Reviews</h2>
 
                         <p className='prof-main-text'>
                             {data.about}
@@ -134,8 +153,11 @@ export const ProfPage = () => {
                     </div>
                     <div className='prof-main-comments-container'>
 
-                        <h2 className='prof-main-comment-title'>Comments</h2>
-                        <Comment activeStars={5} name={'bob'} comment={'fasdfhaikusdfasdkfjasdlfhaslkjdfh'}/>
+                        <h2 className='prof-main-comment-title'>Leave comments</h2>
+                        {comment.map(comment =>(
+                            <Comment {...comment}/>
+                        ))}
+                        
 
                         <input type="text" className='prof-main-input' placeholder='leave a comment' />
 

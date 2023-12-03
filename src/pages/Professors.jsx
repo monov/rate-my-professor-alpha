@@ -7,55 +7,55 @@ import Searchbar from '../components/Searchbar';
 import Logpopup from "../components/Logpopup";
 import { useLocation, useParams } from "react-router-dom";
 
-const data = [{
-    id:1,
-    fullName:"john Smith",
-    university:"Koc University",
-    photoreRerence: 'bob.png',
-    rating :4.5,
-    ratingA:[4,5,1,2,3]
-},
-{    
-    id:1,
-    fullName:"john Smith",
-    university:"Koc University",
-    photoreference: 'bob.png',
-    rating:3.3,
-    ratingA:[4,5,1,2,3]
-},
-{    
-    id:1,
-    fullName:"john Smith",
-    university:"Koc University",
-    photoreference: 'bob.png',
-    rating:3.3,
-    ratingA:[4,5,1,2,3]
-},
-{    
-    id:1,
-    fullName:"john Smith",
-    university:"Koc University",
-    photoreference: 'bob.jpg',
-    rating:3.3,
-    ratingA:[4,5,1,2,3]
-},
-{    
-    id:1,
-    fullName:"john Smith",
-    university:"Koc University",
-    photoreference: 'bob.jpg',
-    rating:3.3,
-    ratingA:[4,5,1,2,3]
-}]
+// const data = [{
+//     id:1,
+//     fullName:"john Smith",
+//     university:"Koc University",
+//     photoreRerence: 'bob.png',
+//     rating :4.5,
+//     ratingA:[4,5,1,2,3]
+// },
+// {    
+//     id:1,
+//     fullName:"john Smith",
+//     university:"Koc University",
+//     photoreference: 'bob.png',
+//     rating:3.3,
+//     ratingA:[4,5,1,2,3]
+// },
+// {    
+//     id:1,
+//     fullName:"john Smith",
+//     university:"Koc University",
+//     photoreference: 'bob.png',
+//     rating:3.3,
+//     ratingA:[4,5,1,2,3]
+// },
+// {    
+//     id:1,
+//     fullName:"john Smith",
+//     university:"Koc University",
+//     photoreference: 'bob.jpg',
+//     rating:3.3,
+//     ratingA:[4,5,1,2,3]
+// },
+// {    
+//     id:1,
+//     fullName:"john Smith",
+//     university:"Koc University",
+//     photoreference: 'bob.jpg',
+//     rating:3.3,
+//     ratingA:[4,5,1,2,3]
+// }]
 
 
 
 
 
-export const Professors = () => {
+export const Professors = ({setSearchResponse}) => {
 
 
-  // const [data , setData] = useState([])
+  const [data , setData] = useState([])
 
   const [isPopup, setIsPopup] = useState(true);
   const [isPopCalled, setIsPopCalled] = useState(true);
@@ -68,10 +68,6 @@ export const Professors = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const searchByClassValue = searchParams.get('searchByClass');
-
-  console.log(searchByClassValue);
-
-
 
   useEffect(() => {
     auth();
@@ -105,18 +101,17 @@ const auth = async () => {
 const getProfs = async ()=>{
   try {
     const response = await fetch(`${api}professors/${profName}?byName=${searchByClassValue}`, {
-      method: "GET",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      credentials: "include",
-      withCredentials: true,
     });
+
 
     if (response.status == 200) {
       const data = await response.json();
-
-      // setData(data)
+      console.log(data);
+      setData(data)
     }
   } catch (error) {
     console.error("Error:", error);
@@ -156,7 +151,7 @@ const getProfs = async ()=>{
         <h1 className='professor-title'>class:PHY 102</h1>
         <div className='professor-cards'>
         {data.map(item =>(
-          <ProfCard {...item}/>
+          <ProfCard {...item} setSearchResponse = {setSearchResponse} />
         ))}
         <div style={{height:'calc(100vh - 300px -147px)'}}></div>
         </div>

@@ -3,10 +3,10 @@ import './ProfCard.css'
 import Navbar from '../components/Navbar'
 import { NavLink } from 'react-router-dom'
 
-export const ProfCard = ({fullName , university , photoreRerence, ratingA=[4,1,2,3] ,rating = 3, id}) => {
+export const ProfCard = ({setSearchResponse , fullName , university , photoreRerence = '/src/assets/bob.png', ratingA=[4,1,2,3,2] ,rating = 3, id}) => {
   return (
-    <NavLink to = {`./${id}`} className='prof-card'>  
-      <div className='prof-card-stats'>
+    <NavLink to = {`./${id}`} className='prof-card' onClick={()=> setSearchResponse({fullName,university,photoreRerence ,id , ratingA , rating})} >  
+      <div className='prof-card-stats' key={id}>
         <div className='prof-card-image-wraper'>
           <img src={photoreRerence} className='prof-card-image' alt="" />
           <div className='prof-card-overall'>{rating}</div>
