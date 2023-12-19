@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Logpopup.css";
 import { MdCancel } from "react-icons/md";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
 const Logpopup = ({
   isPopup,
@@ -85,6 +86,11 @@ const Applogin = ({
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const api = import.meta.env.VITE_API_BASE_URL;
+  const [showP, setShowP] = useState(false);
+
+  const eye = () => {
+    setShowP((v) => !v);
+  };
 
   const handleChangeU = (value) => {
     setUser(value);
@@ -140,13 +146,19 @@ const Applogin = ({
         placeholder="Username"
         type="text"
       />
-      <input
-        value={password}
-        onChange={(e) => handleChangeP(e.target.value)}
-        className="app-login-input password"
-        placeholder="Password"
-        type="password"
-      />
+
+      <div className="showp-wrapper">
+        <input
+          value={password}
+          onChange={(e) => handleChangeP(e.target.value)}
+          className="app-login-input password"
+          placeholder="Password"
+          type={showP ? "text" : "password"}
+        />
+        <div className="showp-button" onClick={eye}>
+          {showP ? <IoMdEye className="eye" /> : <IoMdEyeOff className="eye" />}
+        </div>
+      </div>
       <div onClick={login} className="app-login-button">
         Log In
       </div>
@@ -167,6 +179,7 @@ const Appsignup = ({
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [showP, setShowP] = useState(false);
   const api = import.meta.env.VITE_API_BASE_URL;
   const handleChangeU = (value) => {
     setUser(value);
@@ -178,6 +191,10 @@ const Appsignup = ({
 
   const handleChangeP = (value) => {
     setPassword(value);
+  };
+
+  const eye = () => {
+    setShowP((v) => !v);
   };
 
   function signup() {
@@ -229,12 +246,17 @@ const Appsignup = ({
         type="email"
         onChange={(e) => handleChangeE(e.target.value)}
       />
-      <input
-        className="app-signup-input password"
-        placeholder="Password"
-        type="password"
-        onChange={(e) => handleChangeP(e.target.value)}
-      />
+      <div className="showp-wrapper">
+        <input
+          className="app-signup-input password"
+          placeholder="Password"
+          type={showP ? "text" : "password"}
+          onChange={(e) => handleChangeP(e.target.value)}
+        />
+        <div className="showp-button" onClick={eye}>
+          {showP ? <IoMdEye className="eye" /> : <IoMdEyeOff className="eye" />}
+        </div>
+      </div>
       <div className="app-signup-button" onClick={signup}>
         Sign Up
       </div>
@@ -312,7 +334,9 @@ const NotLoggedIn = ({
           Sign Up
         </div>
       </div>
-      <a href={`${api}login/oauth2`} className="app-signup-google">Sign Up with Google</a>
+      <a href={`${api}login/oauth2`} className="app-signup-google">
+        {isLogin ? "Log In with Google" : "Sign Up with Google"}
+      </a>
       <div className="app-log-popup-lines">
         <div className="app-popup-line"></div>
         <div className="app-popup-line-text">Or</div>
